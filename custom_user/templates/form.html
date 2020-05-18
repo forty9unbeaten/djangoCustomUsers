@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{ title }}</title>
+    </head>
+    <body>
+        <a href={% url 'home' %}>Home</a>
+        <a href={% url 'signup' %}>Register</a>
+        <h1>{{ title }}</h1>
+        <form action="" , method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            {% if message %}
+                If you don't have an account, sign up 
+                <a href={% url 'signup' %}>here</a>
+                <br><br>
+            {% endif %}
+            <button type="submit">{{ button_value }}</button>
+        </form>
+    </body>
+</html>
